@@ -1,0 +1,43 @@
+CREATE TABLE Flat (
+  ID SERIAL PRIMARY KEY,
+  Price INTEGER,
+  Square INTEGER,
+  Address VARCHAR(255),
+  Description TEXT,
+  Owner_ID INTEGER REFERENCES Profile(ID)
+);
+
+CREATE TABLE SmartLock (
+  ID SERIAL PRIMARY KEY,
+  IsOpen BOOLEAN,
+  Flat_ID INTEGER REFERENCES Flat(ID)
+);
+
+CREATE TABLE Profile (
+  ID SERIAL PRIMARY KEY,
+  Name VARCHAR(255),
+  Email VARCHAR(255),
+  Number VARCHAR(255),
+  Login VARCHAR(255),
+  Password VARCHAR(255)
+);
+
+CREATE TABLE Rents (
+  ID SERIAL PRIMARY KEY,
+  Owner_ID INTEGER REFERENCES Profile(ID),
+  Client_ID INTEGER REFERENCES Profile(ID),
+  Begin_date DATE,
+  End_date DATE,
+  Flat_ID INTEGER REFERENCES Flat(ID)
+);
+
+Login: flat
+Pass: 123
+
+sudo -u postgres psql
+CREATE DATABASE FlatSharingDB;
+\q
+pg_restore -U flat -d FlatSharingDB -f database_backups/FlatSharingDB.sql
+
+
+
