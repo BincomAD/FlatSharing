@@ -4,13 +4,15 @@ CREATE TABLE Flat (
   Square INTEGER,
   Address VARCHAR(255),
   Description TEXT,
-  Owner_ID INTEGER REFERENCES Profile(ID)
+  Owner_ID INTEGER REFERENCES Profile(ID),
+  flatid INTEGER
 );
 
 CREATE TABLE SmartLock (
   ID SERIAL PRIMARY KEY,
   IsOpen BOOLEAN,
-  Flat_ID INTEGER REFERENCES Flat(ID)
+  Flat_ID INTEGER REFERENCES Flat(ID),
+  lockid INTEGER
 );
 
 CREATE TABLE Profile (
@@ -19,7 +21,9 @@ CREATE TABLE Profile (
   Email VARCHAR(255),
   Number VARCHAR(255),
   Login VARCHAR(255),
-  Password VARCHAR(255)
+  Password VARCHAR(255),
+  AccessToken VARCHAR(255),
+  userid INTEGER
 );
 
 CREATE TABLE Rents (

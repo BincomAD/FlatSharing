@@ -9,12 +9,16 @@
 class SmartLock {
 private:
     size_t _id;
-    bool _open;
-
+    size_t _flatId;
+    bool _isOpen;
 public:
+    SmartLock(size_t id, size_t flatId, bool isOpen);
     void open();
     void close();
+    size_t getId();
+    size_t getFlatId();
     bool is_open();
+    
 };
 
 #endif //BACKEND_CPP_SMARTLOCK_H

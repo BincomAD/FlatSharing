@@ -16,10 +16,15 @@ boost::property_tree::ptree FLat::getJson() const {
     flat.put("idFlat", _idFlat);
     flat.put("idUserOwner", _idUserOwner);
     flat.put("address", _address);
-    flat.put("smartLock", isTaken());
+    flat.put("isTaken", isTaken());
     flat.put("description", _description);
 
 
     return flat;
 
+}
+
+bool FLat::isTaken() const {
+    //TODO check db
+    return false;
 }

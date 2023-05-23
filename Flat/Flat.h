@@ -20,10 +20,7 @@ private:
 
     std::string _description;
 
-    bool isTaken() const{
-        //TODO check db
-        return false;
-    }
+    bool isTaken() const;
 
 public:
     FLat(unsigned short priceFlat, unsigned short squareFlat, size_t idFlat, size_t idUserOwner, std::string address, std::string description);

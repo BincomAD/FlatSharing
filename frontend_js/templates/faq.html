@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>FAQ · FlatSharing</title>
+    <link rel="stylesheet" href="css/styles.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="0.2em" height="1em">
+          <use href="#circle-half">
+            <img src="img/box.svg" alt="Box Icon" width="20" height="20" class="me-2">
+          </use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <header data-bs-theme="dark">
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+          <a href="/" class="navbar-brand d-flex align-items-center logo-name">
+            <img src="img/box.svg" alt="Box Icon" width="20" height="20" class="me-2">
+            <strong>FlatSharing</strong>
+          </a>
+          <div>
+            <a href="/catalog" class="btn btn-outline-light me-2">Каталог</a>
+            <a href="/faq." class="btn btn-outline-light me-2">FAQ</a>
+            <a href="/auth" class="btn btn-outline-light me-2">Войти</a>
+            <a href="/registration" class="btn btn-outline-light">Зарегистрироваться</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="container">
+          <h1>Добро пожаловать на FlatSharing</h1>
+          <p>Арендуйте квартиры без лишних хлопот!</p>
+          <p><strong>Наши главные преимущества:</strong></p>
+          <ul>
+            <li>Аренда квартир только с помощью телефона</li>
+            <li>Встроенные умные замки, которые открываются по нажатию кнопки "Открыть"</li>
+            <!-- Добавьте другие преимущества, если есть -->
+          </ul>
+
+         <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2242.790242936197!2d37.53242309234216!3d55.796880103742566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b549c0af2d5e3f%3A0xa77899d557548e3a!2sVK!5e0!3m2!1sru!2sru!4v1684762653219!5m2!1sru!2sru" width="100%" height="450" style="border:10;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-body-secondary py-5">
+      <div class="container text-center my-3">
+        <p class="">2023 &copy; FlatSharing</p>
+      </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

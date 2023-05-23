@@ -1,0 +1,106 @@
+@startuml
+class Server {
++explicit Server(unsigned short port)
++void run()
+-private do_session(boost::asio::ip::tcp::socket socket)
+}
+
+abstract class AbstractPage {
++explicit AbstractPage(const std::shared_ptr<http::request<http::string_body>>& request)
++http::response<http::string_body> getResponse()
+}
+
+class IndexPage {
+}
+
+class LockControl {
+}
+
+class Flats {
+}
+
+class Login {
+}
+
+class UserPage {
+}
+
+class AddFlat {
+}
+
+class FlatPage {
+}
+
+class RentAFlat {
+}
+
+class DBHelper {
+-private _connection: pqxx::connection*
++DBHelper(std::string host, std::string port, std::string dbname, std::string user, std::string password)
++~DBHelper()
++void saveFlat(std::unique_ptr<FLat> flatItem);
++void updateFlat(size_t flatId, std::unique_ptr<FLat> flatItemUp);
++FLat getFlat(size_t flatId);
++std::vector<FLat> getFlatsList(size_t offset, size_t amount);
++void saveLock(std::unique_ptr<SmartLock> lockItem);
++SmartLock getLock(size_t lockId);
++void updateLock(size_t lockId, std::unique_ptr<SmartLock> slItem);
++User getUser(size_t userId);
++void saveUser(std::unique_ptr<User> userItem);
++void updateUser(size_t userId, std::unique_ptr<User> userItemUp
+}
+
+class FLat {
+-private
+    -unsigned short _priceFlat
+    -unsigned short _squareFlat
+    -size_t _idFlat
+    -size_t _idUserOwner
+    -std::string _address
+    -std::string _description
+    +bool isTaken() const
++public
+    +FLat(unsigned short priceFlat, unsigned short squareFlat, size_t idFlat, size_t idUserOwner, std::string address, std::string description)
+    +boost::property_tree::ptree getJson() const
+}
+
+class SmartLock {
+-private
+    -size_t _id
+    -bool _isOpen
++public
+    +void open()
+    +void close()
+    +bool is_open()
+}
+
+class AuthHelper {
+-private:
+    -std::string hash_password(const std::string& password)
+    -std::string generate_uuid()
+    -std::string db_path_;
++public:
+    +AuthHelper(const std::string& db_path) : db_path_(db_path)
+    +bool register_user(const std::string& username, const std::string& password)
+}
+
+class User {
+-private:
+    -size_t _id;
+    -std::string _nameUser, _secondName, _phoneNumber, _mail;
+
+    -std::vector<std::string> flatsHands();
+    -std::vector<std::string> flatsRent();
+
+}
+
+Server -> AbstractPage
+AbstractPage <|-- IndexPage
+AbstractPage <|-- LockControl
+AbstractPage <|-- Flats
+AbstractPage <|-- Login
+AbstractPage <|-- UserPage
+AbstractPage <|-- AddFlat
+AbstractPage <|-- FlatPage
+AbstractPage <|-- RentAFlat
+@enduml

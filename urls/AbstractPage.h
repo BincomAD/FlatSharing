@@ -14,13 +14,17 @@ using namespace boost::beast;
 
 class AbstractPage{
 protected:
-
-    std::unordered_map<std::string, std::string> parseGetRequest(std::shared_ptr<http::request<http::string_body>> request);
-
+    std::unordered_map<std::string, std::string> _params;
+    std::unordered_map<std::string, std::string> parseGetRequest(const std::shared_ptr<http::request<http::string_body>> request);
+    std::unordered_map<std::string, std::string> parsePostRequest(const std::shared_ptr<http::request<http::string_body>> request);
 public:
 
     //don`t forget to set status, content_type, and body.
     virtual http::response<http::string_body> getResponse() = 0;
+
+    http::response<http::string_body> getErrorResponse(const std::string& text, http::status status);
+
+    std::vector<std::string> getMissingParams(std::unique_ptr<std::vector<std::string>> requiredParams);
 };
 
 
